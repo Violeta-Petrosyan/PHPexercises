@@ -51,11 +51,10 @@ $obj = json_decode($jsonobj, true);
 foreach ($obj as $item => $value) {
     if(is_array($value)) {
         foreach ($value as $value1) {
-            echo $item.": ".$value1."<br>";
+            echo $item . ": " . $value1 . "<br>";
         }
-    }
-    else {
-        echo $item.": ".$value."<br>";
+    } else {
+        echo $item . ": " . $value . "<br>";
     }
 }
 
@@ -116,21 +115,21 @@ for ($i = 1, $max = $data[0]; $i < $dataCount; ++$i) {
     }
 }
 $beads = array_fill(0, $max * $dataCount, 0);
-for ($i = 0; $i < $dataCount; ++$i)
-    for ($j = 0; $j < $data[$i]; ++$j)
+for ($i = 0; $i < $dataCount; ++$i) {
+    for ($j = 0; $j < $data[$i]; ++$j) {
         $beads[$i * $max + $j] = 1;
-for ($j = 0; $j < $max; ++$j)
-{
-    for ($sum = $i = 0; $i < $dataCount; ++$i)
-    {
+    }
+}
+for ($j = 0; $j < $max; ++$j) {
+    for ($sum = $i = 0; $i < $dataCount; ++$i) {
         $sum += $beads[$i * $max + $j];
         $beads[$i * $max + $j] = 0;
     }
-    for ($i = $dataCount - $sum; $i < $dataCount; ++$i)
+    for ($i = $dataCount - $sum; $i < $dataCount; ++$i) {
         $beads[$i * $max + $j] = 1;
+    }
 }
-for ($i = 0; $i < $dataCount; ++$i)
-{
+for ($i = 0; $i < $dataCount; ++$i) {
     for ($j = 0; $j < $max && $beads[$i * $max + $j]; ++$j) ;
     $data[$i] = $j;
 }
@@ -145,8 +144,7 @@ $result = [];
 foreach($array1 as $key => $value) {
     if(is_array($array2[$key])) {
         $result[$key] = array_merge($array2[$key], $array1[$key]);
-    }
-    else {
+    } else {
         $result[$key] = array_merge([$array2[$key]], $array1[$key]);
     }
 }
@@ -156,7 +154,7 @@ echo "</pre>";
 
 //12
 $Color = ['A' => 'Blue', 'B' => 'Green', 'c' => 'Red'];
-foreach($Color as $item=>$value){
+foreach($Color as $item=>$value) {
     echo $item." => ".strtoupper($value)." ";
 }
 echo "<br>";
@@ -182,10 +180,11 @@ echo "<br>";
 //14
 $str1 = 'The quick brown fox jumps over the lazy dog.';
 $str2 = 'brown fox';
-if(strpos($str1, $str2) != false)
+if(strpos($str1, $str2) != false) {
     echo "String contains the substring.";
-else
+} else {
     echo "String doesn't contain the substring.";
+}
 
 //15
 $str = 'www.example.com/pubic_html/index.php';
@@ -211,16 +210,18 @@ $str2 = 'footboll';
 $len1 = strlen($str1);
 $len2 = strlen($str2);
 $len = $len1;
-if($len2 < $len1)
+if($len2 < $len1) {
     $len = $len2;
-for($i = 0; $i < $len; $i++){
-    if($str1[$i] != $str2[$i]){
+}
+for($i = 0; $i < $len; $i++) {
+    if($str1[$i] != $str2[$i]) {
         $index = $i;
         break;
+    } else {
+        continue;
     }
-    else continue;
 }
-echo "First difference between strings is in position: ". $i. ": ".$str1[$i]." vs ".$str2[$i];
+echo "First difference between strings is in position: ". $i . ": " . $str1[$i] . " vs " . $str2[$i];
 
 //20
 $str='2,543.12';
